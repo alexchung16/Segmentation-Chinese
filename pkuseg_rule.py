@@ -68,14 +68,14 @@ if __name__ == "__main__":
                 word_status = 'o'
                 for word in words:
                     print(words, len(words))
-                    if tag in ['nz', 'ns', 'n'] and len(words) > 1:
+                    if tag in ['nz', 'ns', 'n'] and len(words) > 1 and len(words) < 10 :
                         if word_status in ['IT', 'o']:
                             fw.write(word + '\t' + tag_map['n_begin'] + '\t' + tag + '\n')
                             word_status = 'BE'
                         else:
                             fw.write(word + '\t' + tag_map['n_internal'] + '\t' + tag + '\n')
                             word_status = 'IE'
-                    elif tag in ['v', 'vn'] and len(words) > 1:
+                    elif tag in ['v', 'vn'] and len(words) > 1 and len(words) < 10:
                         if word_status in ['IE', 'o']:
                             fw.write(word + '\t' + tag_map['v_begin'] + '\t' + tag + '\n')
                             word_status = 'BT'
